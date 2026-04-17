@@ -189,6 +189,33 @@ cisco-sdwan-hospital-lab/
 
 ---
 
+## 🔐 Bảo mật dữ liệu
+
+Toàn bộ traffic giữa các site được mã hóa
+qua đường hầm IPsec tự động:
+
+| Tunnel                                       | Encryption | Mục đích     |
+| -------------------------------------------- | ---------- | ------------ |
+| Edge1:mpls-Edge2:mpls[IPSEC]                 | AES-256    | Dữ liệu y tế |
+| Edge1:biz-internet-Edge2:biz-internet[IPSEC] | AES-256    | Backup path  |
+
+→ Đảm bảo tính riêng tư dữ liệu bệnh nhân
+theo tiêu chuẩn HIPAA/bảo mật y tế
+
+---
+
+## ⚡ Thách thức kỹ thuật & Giải pháp
+
+| Vấn đề gặp phải                                   | Giải pháp                                   |
+| ------------------------------------------------- | ------------------------------------------- |
+| Version mismatch: csdwan deploy 20.18.1 not found | Dùng đúng version 20.18.2.1 có trong CML    |
+| Edge version khác Controller: 20.18.x → 17.18.x   | Hiểu IOS-XE versioning scheme của Cisco     |
+| Authentication failed sau thời gian dài           | Re-run source sdwan.sh mỗi terminal session |
+| vManage không real-time                           | Dùng Events Log để đo convergence chính xác |
+| Session dCloud giới hạn 5 ngày                    | Dùng csdwan backup/restore để bảo toàn lab  |
+
+---
+
 ## 👨‍💻 Tác giả
 
 **Phạm Thanh Lâm**  
