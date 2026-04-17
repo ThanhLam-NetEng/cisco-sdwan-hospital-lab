@@ -22,20 +22,21 @@ Một hệ thống bệnh viện đa khoa cần hạ tầng mạng đảm bảo:
 
 ### Topology: Hub-and-Spoke
 
-SD-WAN Manager
-SD-WAN Controller  
- SD-WAN Validator
-│
-┌──────────┴──────────┐
-│ │
-[Internet] [MPLS]
-│ │
-┌─────────┴─────────────────────┘
-│
+                    SD-WAN Manager
+                    SD-WAN Controller
+                    SD-WAN Validator
+                         |
+              +----------+-----------+
+              |                      |
+         [Internet]              [MPLS]
+              |                      |
+    +---------+----------------------+
+    |
+
 [Data Center - HQ - Site 100]
-│ │
+| |
 [Edge1 - Site 1] [Edge2 - Site 2]
-Phòng khám A Phòng khám B
+Phong kham A Phong kham B
 
 ### IP Schema
 

@@ -1,0 +1,70 @@
+viptela-policy:policy
+ control-policy control_-1894021173
+    sequence 10
+     match route
+      site-list Hospital-HQ
+      vpn-list Corp-VPN
+     !
+     action accept
+     !
+    !
+    sequence 20
+     match tloc
+      site-list Hospital-HQ
+     !
+     action accept
+     !
+    !
+  default-action reject
+ !
+ app-route-policy _Corp-VPN_Hospital-AAR-Policy
+  vpn-list Corp-VPN
+    sequence 1
+     match
+      app-list Critical-Medical-Traffic
+      source-ip 0.0.0.0/0
+     !
+     action
+      backup-sla-preferred-color mpls biz-internet
+     !
+    !
+    sequence 11
+     match
+      app-list WEB_TOOLS_APP
+      source-ip 0.0.0.0/0
+     !
+     action
+      backup-sla-preferred-color biz-internet mpls
+     !
+    !
+ !
+ lists
+  app-list Critical-Medical-Traffic
+   app oracle 
+   app tns 
+   app ssh 
+   app ms-sql-m 
+  !
+  app-list WEB_TOOLS_APP
+   app https 
+   app ssh 
+   app sshell 
+   app http 
+  !
+  site-list Hospital-Branches
+   site-id 1-2 
+  !
+  site-list Hospital-HQ
+   site-id 100 
+  !
+  vpn-list Corp-VPN
+   vpn 1 
+  !
+ !
+!
+apply-policy
+ site-list Hospital-Branches
+  control-policy control_-1894021173 out
+  app-route-policy _Corp-VPN_Hospital-AAR-Policy
+ !
+!
