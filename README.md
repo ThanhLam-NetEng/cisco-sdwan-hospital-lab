@@ -163,21 +163,23 @@ Validation : vManage Events Log
 
 ## 📁 Cấu trúc Repository
 
+```
 cisco-sdwan-hospital-lab/
 ├── README.md
 ├── topology/
-│ └── diagram.png
+│   └── diagram.png
 ├── configs/
-│ └── policy-preview.txt
+│   └── policy-preview.txt
 ├── screenshots/
-│ ├── 01-cml-topology.png
-│ ├── 02-devices-online.png
-│ ├── 03-policy-activated.png
-│ ├── 04-tunnel-before-failover.png
-│ ├── 05-tunnel-after-failover.png
-│ └── 06-events-log.png
+│   ├── 01-cml-topology.png
+│   ├── 02-devices-online.png
+│   ├── 03-policy-activated.png
+│   ├── 04-tunnel-before-failover.png
+│   ├── 05-tunnel-after-failover.png
+│   └── 06-events-log.png
 └── docs/
-└── failover-test-results.md
+    └── failover-test-results.md
+```
 
 ---
 
