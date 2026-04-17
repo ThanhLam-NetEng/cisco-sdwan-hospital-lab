@@ -75,18 +75,20 @@ Backup = MPLS
 
 ### Policy Config (từ vManage Preview)
 
-app-route-policy \_Corp-VPN_Hospital-AAR-Policy
-vpn-list Corp-VPN
-sequence 1
-match
-app-list Critical-Medical-Traffic
-action
-backup-sla-preferred-color mpls biz-internet
-sequence 11
-match
-app-list WEB_TOOLS_APP
-action
-backup-sla-preferred-color biz-internet mpls
+```
+app-route-policy _Corp-VPN_Hospital-AAR-Policy
+  vpn-list Corp-VPN
+    sequence 1
+     match
+      app-list Critical-Medical-Traffic
+     action
+      backup-sla-preferred-color mpls biz-internet
+    sequence 11
+     match
+      app-list WEB_TOOLS_APP
+     action
+      backup-sla-preferred-color biz-internet mpls
+```
 
 ---
 
@@ -106,9 +108,11 @@ backup-sla-preferred-color biz-internet mpls
 | 01:17 AM      | Edge1 Fib Updates — routing table cập nhật       |
 | 01:19 AM      | Full convergence — traffic chuyển hoàn toàn      |
 
-Convergence Time : ~3 phút
-Manual Intervention : Zero
-Validation : vManage Events Log
+```
+Convergence Time     : ~3 phút
+Manual Intervention  : Zero
+Validation           : vManage Events Log
+```
 
 ---
 
@@ -137,6 +141,8 @@ Validation : vManage Events Log
 ### Events Log — Convergence Timeline
 
 ![Events](screenshots/06-events-log.png)
+
+---
 
 ## 🔄 So sánh SDN/OpenFlow vs Cisco SD-WAN
 
@@ -185,7 +191,7 @@ cisco-sdwan-hospital-lab/
 
 ## 👨‍💻 Tác giả
 
-**Pham Thanh Lam**  
-Sinh viên ngành Mạng máy tính  
+**Phạm Thanh Lâm**  
+Sinh viên ngành Mạng máy tính và truyền thông dữ liệu
 Nền tảng: SDN/OpenFlow, Network Programmability  
 Platform: Cisco dCloud, NetAcad
