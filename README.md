@@ -22,6 +22,7 @@ Một hệ thống bệnh viện đa khoa cần hạ tầng mạng đảm bảo:
 
 ### Topology: Hub-and-Spoke
 
+```
                     SD-WAN Manager
                     SD-WAN Controller
                     SD-WAN Validator
@@ -32,11 +33,11 @@ Một hệ thống bệnh viện đa khoa cần hạ tầng mạng đảm bảo:
               |                      |
     +---------+----------------------+
     |
-
 [Data Center - HQ - Site 100]
-| |
-[Edge1 - Site 1] [Edge2 - Site 2]
-Phong kham A Phong kham B
+    |                         |
+[Edge1 - Site 1]    [Edge2 - Site 2]
+ Phong kham A        Phong kham B
+```
 
 ### IP Schema
 
@@ -110,6 +111,32 @@ Manual Intervention : Zero
 Validation : vManage Events Log
 
 ---
+
+## 📸 Screenshots
+
+### CML Topology
+
+![CML Topology](screenshots/01-cml-topology.png)
+
+### All Devices Online
+
+![Devices](screenshots/02-devices-online.png)
+
+### Policy Activated
+
+![Policy](screenshots/03-policy-activated.png)
+
+### Tunnel Before Failover
+
+![Before](screenshots/04-tunnel-before-failover.png)
+
+### Tunnel After Failover (MPLS Down)
+
+![After](screenshots/05-tunnel-after-failover.png)
+
+### Events Log — Convergence Timeline
+
+![Events](screenshots/06-events-log.png)
 
 ## 🔄 So sánh SDN/OpenFlow vs Cisco SD-WAN
 
